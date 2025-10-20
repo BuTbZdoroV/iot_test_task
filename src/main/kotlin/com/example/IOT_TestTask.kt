@@ -10,6 +10,7 @@ import net.minecraft.text.Text
 import org.slf4j.LoggerFactory
 
 object IOT_TestTask : ModInitializer {
+
     private val logger = LoggerFactory.getLogger("iot_testtask")
 
     override fun onInitialize() {
@@ -29,9 +30,7 @@ object IOT_TestTask : ModInitializer {
             val server = context.server()
             val player = context.player()
 
-            // Выполняем на серверном потоке
             server.execute {
-                println("📨 Получено сообщение от ${player.name.string} $messageText")
 
                 val responsePayload = MessageS2CPayload("Сервер получил: '$messageText'")
                 ServerPlayNetworking.send(player, responsePayload)

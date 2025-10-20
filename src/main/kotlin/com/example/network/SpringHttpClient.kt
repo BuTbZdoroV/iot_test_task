@@ -29,12 +29,11 @@ object SpringHttpClient {
                 this.message = message
             }
 
-            // Преобразуем в ByteArray и создаем RequestBody с помощью extension function
             val requestBody = protobufMessage.toByteArray().toRequestBody(PROTOBUF_MEDIA_TYPE)
 
             val request = Request.Builder()
                 .url("$SPRING_URL/api/v1/messages/sendMessage")
-                .post(requestBody) // используем созданный requestBody
+                .post(requestBody)
                 .addHeader("Content-Type", "application/x-protobuf")
                 .addHeader("Accept", "application/x-protobuf")
                 .build()

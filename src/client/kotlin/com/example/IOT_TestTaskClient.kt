@@ -43,7 +43,7 @@ object IOT_TestTaskClient : ClientModInitializer {
         openGuiKey = KeyBindingHelper.registerKeyBinding(KeyBinding(
             "key.iot_test_task.open_gui",
             InputUtil.Type.KEYSYM,
-            GLFW.GLFW_KEY_H, // Код клавиши G
+            GLFW.GLFW_KEY_H,
             "category.iot_test_task.general"
         ))
 
